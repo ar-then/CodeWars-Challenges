@@ -1,0 +1,21 @@
+from collections import Counter
+
+def find_it(seq):
+  freqT = Counter(seq).most_common(None)
+  maxf = 0
+  for i in range(0,len(freqT)):
+    if freqT[i][1]%2==1 and maxf<freqT[i][1]:
+      maxf = freqT[i][1]
+      maxi = i
+  return freqT[maxi][0]
+#My solution
+
+def find_it(seq):
+    for i in seq:
+        if seq.count(i)%2!=0:
+            return i
+#Best practice
+
+def find_it(xs):
+    return reduce(operator.xor, xs)
+#Most clever
